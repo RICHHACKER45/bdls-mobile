@@ -1,0 +1,76 @@
+<!-- Global BDLS Header -->
+<ion-header class="ion-no-border">
+  <ion-toolbar style="--background: #ffffff; border-bottom: 1px solid #e5e5e5;">
+    <div style="display: flex; align-items: center; gap: 10px; padding-left: 16px;">
+      <!-- Logo Graphic (10% Accent Red) -->
+      <div style="background: #dc2626; width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+        <ion-icon name="shield-checkmark-outline" style="color: white; font-size: 18px;"></ion-icon>
+      </div>
+      <!-- Title (30% Black) -->
+      <ion-title style="color: #000000; font-weight: 900; font-size: 22px; padding-left: 0; letter-spacing: -0.5px;">BDLS</ion-title>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<!-- 60% White Background -->
+<ion-content style="--background: #ffffff; color: #000000;">
+  <div style="padding: 24px 20px 20px 20px;">
+    <!-- 30% Black Text -->
+    <h2 style="font-weight: 800; margin-bottom: 0; margin-top: 0; color: #000000;">Gumawa ng Request</h2>
+    <p style="color: #404040; font-size: 14px; margin-top: 4px;">Kumpletuhin ang detalye para sa iyong dokumento.</p>
+  </div>
+
+  <ion-list lines="none" style="background: transparent; padding: 0 20px;">
+    <label style="display: block; font-size: 14px; font-weight: 700; color: #000000; margin-bottom: 8px;">Uri ng Dokumento <span style="color: #dc2626;">*</span></label>
+    
+    <ion-item style="--background: #ffffff; --border-color: #d4d4d4; --border-radius: 12px; --border-width: 1px; --padding-start: 16px; margin-bottom: 16px; box-shadow: 0 1px 2px 0 rgba(0,0,0,0.05); color: #000000;">
+      <ion-select placeholder="-- Pumili ng Dokumento --" [(ngModel)]="selectedDocId" (ionChange)="onDocumentChange()" style="width: 100%;">
+        @for (doc of documents; track doc.id) {
+          <ion-select-option [value]="doc.id">{{ doc.name }}</ion-select-option>
+        }
+      </ion-select>
+    </ion-item>
+
+    @if (selectedDoc) {
+      <div style="background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 12px; color: #1e3a8a; padding: 16px; margin-top: 12px; margin-bottom: 16px;">
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+          <!-- 30% Black text -->
+          <ion-icon name="information-circle-outline" style="font-size: 20px; color: #2563eb;"></ion-icon>
+          <strong style="color: #1e40af;">Mga Kinakailangang Dalhin:</strong>
+        </div>
+        <div style="margin-left: 28px; font-size: 14px; font-weight: 500;">
+          {{ selectedDoc.requirements }}
+        </div>
+      </div>
+
+      <div style="background: #ecfdf5; border: 1px solid #a7f3d0; border-radius: 12px; color: #064e3b; padding: 16px; margin-top: 16px; display: flex; justify-content: space-between; align-items: center;">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <div style="background: #d1fae5; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;">
+            <!-- 10% Accent Red Icon -->
+            <ion-icon name="wallet-outline" style="font-size: 24px; color: #059669;"></ion-icon>
+          </div>
+          <div>
+            <div style="font-weight: 700; font-size: 14px; color: #064e3b;">Processing Fee</div>
+            <div style="font-size: 11px; font-weight: 600; color: #059669;">Standard Barangay Rate</div>
+          </div>
+        </div>
+        <div style="text-align: right;">
+          <div style="font-size: 24px; font-weight: 900; color: #047857;">₱{{ selectedDoc.fee | number:'1.2-2' }}</div>
+          <div style="font-size: 9px; font-weight: 900; letter-spacing: 1px; text-transform: uppercase; color: #059669;">Libre</div>
+        </div>
+      </div>
+    }
+
+    <label style="display: block; font-size: 14px; font-weight: 700; color: #000000; margin-top: 24px; margin-bottom: 8px;">Layunin (Purpose) <span style="color: #dc2626;">*</span></label>
+    <ion-item style="--background: #ffffff; --border-color: #d4d4d4; --border-radius: 12px; --border-width: 1px; --padding-start: 16px; margin-bottom: 16px; box-shadow: 0 1px 2px 0 rgba(0,0,0,0.05); color: #000000;">
+      <ion-input placeholder="Hal. Requirement sa Trabaho..." [(ngModel)]="purpose" style="--padding-top: 16px; --padding-bottom: 16px;"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <div style="padding: 24px 20px;">
+    <!-- 10% Accent Red Button -->
+    <button style="width: 100%; background: #dc2626; color: white; font-weight: 800; border-radius: 12px; padding: 16px; font-size: 16px; box-shadow: 0 4px 6px -1px rgba(220,38,38,0.3); border: none;" [disabled]="!selectedDocId || !purpose" (click)="submitRequest()" [style.opacity]="(!selectedDocId || !purpose) ? '0.5' : '1'">
+      Submit Request
+    </button>
+  </div>
+</ion-content>

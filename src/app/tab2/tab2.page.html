@@ -1,0 +1,47 @@
+<!-- Global BDLS Header -->
+<ion-header class="ion-no-border">
+  <ion-toolbar style="--background: #ffffff; border-bottom: 1px solid #e5e5e5;">
+    <div style="display: flex; align-items: center; gap: 10px; padding-left: 16px;">
+      <div style="background: #dc2626; width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+        <ion-icon name="shield-checkmark-outline" style="color: white; font-size: 18px;"></ion-icon>
+      </div>
+      <ion-title style="color: #000000; font-weight: 900; font-size: 22px; padding-left: 0; letter-spacing: -0.5px;">BDLS</ion-title>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content style="--background: #ffffff; color: #000000;">
+  <div style="padding: 24px 20px 10px 20px;">
+    <h2 style="font-weight: 800; margin-bottom: 0; margin-top: 0; color: #000000;">Aking Mga Request</h2>
+    <p style="color: #404040; font-size: 14px; margin-top: 4px;">Subaybayan ang estado ng iyong mga dokumento.</p>
+  </div>
+
+  <div style="padding: 0 20px;">
+    @for (request of myRequests; track request.id) {
+      <div style="background: #ffffff; border-radius: 12px; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1); margin-bottom: 16px; overflow: hidden;">
+        <div style="padding: 16px;">
+          <!-- 10% Accent Red for Dates -->
+          <div style="color: #dc2626; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px;">{{ request.date }} &bull; {{ request.id }}</div>
+          
+          <!-- 30% Black for Titles -->
+          <div style="color: #000000; font-size: 18px; font-weight: 800; margin-top: 4px;">{{ request.documentName }}</div>
+          
+          <div style="color: #262626; font-size: 14px; margin-top: 12px; font-weight: 500;">
+            <strong style="color: #000000;">Layunin:</strong> {{ request.purpose }}
+          </div>
+          
+          <div style="margin-top: 16px; border-top: 1px solid #f5f5f5; padding-top: 16px; display: flex; justify-content: flex-end;">
+            <app-status-badge [status]="request.status"></app-status-badge>
+          </div>
+        </div>
+      </div>
+    }
+
+    @if (myRequests.length === 0) {
+      <div style="text-align: center; padding-top: 60px; color: #a3a3a3;">
+        <ion-icon name="document-outline" style="font-size: 64px; opacity: 0.5;"></ion-icon>
+        <p style="font-weight: 600;">Wala ka pang request.</p>
+      </div>
+    }
+  </div>
+</ion-content>

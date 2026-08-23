@@ -1,0 +1,36 @@
+/* [ADDED: Custom class mimicking Tailwind rounded-2xl border border-slate-100 shadow-sm] */
+.bdls-card {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  border: 1px solid #f1f5f9;
+  margin: 16px 0;
+}
+
+/* [ADDED: Typography classes for better text hierarchy] */
+.request-date {
+  color: #64748b; /* slate-500 */
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.request-title {
+  color: #0f172a; /* slate-900 */
+  font-size: 18px;
+  font-weight: 800;
+  margin-top: 4px;
+}
+
+.request-purpose {
+  color: #475569; /* slate-600 */
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+.page-description {
+  color: #64748b;
+  font-size: 14px;
+  margin-top: 4px;
+}

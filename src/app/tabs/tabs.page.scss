@@ -1,0 +1,23 @@
+ion-tab-bar {
+  --background: #dc2626; /* 10% Accent Red */
+  border-top: 1px solid #b91c1c;
+}
+
+ion-tab-button {
+  /* Faded white for inactive tabs */
+  --color: rgba(255, 255, 255, 0.45); 
+  /* Solid white for active tab */
+  --color-selected: #ffffff; 
+}
+
+/* Force solid white selection globally if variable override fails */
+ion-tab-button.tab-selected ion-icon,
+ion-tab-button.tab-selected ion-label {
+  color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+ion-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+}

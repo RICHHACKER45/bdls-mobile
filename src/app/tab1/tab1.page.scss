@@ -1,0 +1,38 @@
+
+.bdls-info-box {
+  background: #eff6ff; 
+  border: 1px solid #bfdbfe; 
+  border-radius: 12px;
+  color: #1e3a8a; 
+  padding: 16px;
+  margin-top: 12px;
+  margin-bottom: 16px;
+}
+.bdls-fee-box {
+  background: #ecfdf5; 
+  border: 1px solid #a7f3d0; 
+  border-radius: 12px;
+  color: #064e3b; 
+  padding: 16px;
+  margin-top: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.fee-label { font-weight: 700; font-size: 14px; }
+.fee-amount { font-size: 24px; font-weight: 900; color: #047857; }
+ion-item.custom-input {
+  --background: #ffffff;
+  --border-color: #cbd5e1;
+  --border-radius: 12px;
+  --border-width: 1px;
+  --padding-start: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,0.05);
+  color: #0f172a;
+}
+.page-description {
+  color: #64748b;
+  font-size: 14px;
+  margin-top: 4px;
+}
