@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">BDLS Mobile</string>
+    <string name="title_activity_main">BDLS Mobile</string>
+    <string name="package_name">com.bdls.app</string>
+    <string name="custom_url_scheme">com.bdls.app</string>
+</resources>
